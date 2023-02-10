@@ -90,8 +90,20 @@ const createUsername = function (accs) {
 };
 createUsername(accounts);
 
-console.log(accounts);
+// console.log(accounts);
 
+const deposits = account1.movements.filter(function (mov) {
+  return mov > 0;
+});
+
+console.log(deposits);
+
+const euroToUsd = 1.1;
+const totalDepositUSD = movements
+  .filter(mov => mov > 0)
+  .map(map(mov => mov * euroToUsd).reduce((acc, mov) => acc + mov, 0));
+
+console.log(totalDepositUSD);
 // const user = 'Steven Thomas Williams';
 // const username = user
 //   .toLowerCase()
